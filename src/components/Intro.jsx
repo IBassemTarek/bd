@@ -95,7 +95,7 @@ function Effect() {
 const Intro = () => {
   const [index, setIndex] = useState(1);
   const navigate = useNavigate();
-  const { images } = useOutletContext();
+  const { images , nextAudio } = useOutletContext();
   const transitions = useTransition(index, {
     from: {
       opacity: 0,
@@ -124,7 +124,10 @@ const Intro = () => {
     return () => clearInterval(id);
   }, [index]);
 
-  const handleClick = () => navigate("/q1");
+  const handleClick = () => {
+    navigate("/q1");
+    nextAudio();
+  }
 
   return (
     <>
@@ -142,7 +145,7 @@ const Intro = () => {
         })}
 
         <ShowAfter
-          time={15000}
+          time={23000}
           text={"Click Me..."}
           onClick={handleClick}
           className="uppercase absolute translate-x-[-50%] bottom-[32px] text-xl"

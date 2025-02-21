@@ -9,7 +9,7 @@ const Qoute1 = () => {
     <div className="flex flex-1 items-center justify-center p-4 flex-col">
       <TypeAnimation
         sequence={[
-          `See, Nesma. On your special day, I want to tell you that you are the most special person in this entire world.`,
+          `See, Rahma. On your special day, I want to tell you that you are the most special person in this entire world.`,
         ]}
         wrapper="div"
         cursor={true}
@@ -18,7 +18,7 @@ const Qoute1 = () => {
         className="text-xl max-w-sm text-center"
       />
       <ShowAfter
-        time={6500}
+        time={11000}
         text={"Click me to continue ->"}
         onClick={() => navigate("/q2")}
         className="absolute translate-x-[-50%] bottom-[32px] "

@@ -22,6 +22,15 @@ const Layout = () => {
   const audioRef = useRef();
   const playAudio = () => audioRef.current.play();
   const pauseAudio = () => audioRef.current.pause();
+  // next audio
+  const nextAudio = () => {
+    pauseAudio();
+    const nextAudio = new Audio();
+    nextAudio.src = "/songs/1.mp3";
+    nextAudio.loop = true;
+    nextAudio.play();
+    audioRef.current = nextAudio
+  }
 
   useEffect(() => {
     // preload images and audio
@@ -43,15 +52,30 @@ const Layout = () => {
       const audio = new Audio();
       audio.src = "/songs/2.mp3";
       audio.loop = true;
+    
       audio.onplay = () => {
         audio.currentTime = 7;
       };
+    
       audio.oncanplaythrough = () => {
         resolve(audio);
       };
+    
       audio.onerror = (err) => reject(err);
+    
+      audio.onended = () => {
+        // When "/songs/2.mp3" ends, start playing "/songs/1.mp3"
+        const nextAudio = new Audio();
+        nextAudio.src = "/songs/1.mp3";
+        nextAudio.loop = true;
+        nextAudio.play();
+        audioRef.current = nextAudio;  // Optionally store the new audio reference
+      };
+    
       audioRef.current = audio;
+      audio.play();
     });
+    
 
     Promise.all([...imagesPromises, audioPromise]).then((s) => {
       s.pop();
@@ -62,7 +86,7 @@ const Layout = () => {
   return (
     <div className="flex-1 flex">
       {isLoaded ? (
-        <Outlet context={{ playAudio, pauseAudio, images }} />
+        <Outlet context={{ playAudio, pauseAudio,nextAudio, images }} />
       ) : (
         <Loader />
       )}
