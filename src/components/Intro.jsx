@@ -145,7 +145,7 @@ const Intro = () => {
         })}
 
         <ShowAfter
-          time={23000}
+          time={18000}
           text={"Click Me..."}
           onClick={handleClick}
           className="uppercase absolute translate-x-[-50%] bottom-[32px] text-xl"
