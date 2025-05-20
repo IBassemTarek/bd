@@ -9,7 +9,7 @@ const Qoute2 = () => {
     <div className="flex flex-1 items-center justify-center p-4">
       <TypeAnimation
         sequence={[
-          `Happy birthday, my love! 💖 \n It feels like our hearts speak without words, like you can feel me even in silence. I'm so blessed to share this deep connection with you. You are my perfect match, and I love you endlessly. 💕`,
+          `Happy birthday, `,
         ]}
         wrapper="div"
         cursor={true}

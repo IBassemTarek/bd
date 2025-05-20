@@ -9,7 +9,7 @@ const Qoute1 = () => {
     <div className="flex flex-1 items-center justify-center p-4 flex-col">
       <TypeAnimation
         sequence={[
-          `See, Rahma. On your special day, I want to tell you that you are the most special person in this entire world.`,
+          `See,`,
         ]}
         wrapper="div"
         cursor={true}
