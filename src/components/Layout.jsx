@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Outlet, useOutletContext } from "react-router-dom";
 import Loader from "./Loader";
 
+// at public
 const media = [
   { url: "/images/1-min.jpg" },
   { url: "/images/2-min.jpg" },
